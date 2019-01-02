@@ -1,0 +1,3 @@
+$('#join_group_<%= @group_id %>').attr('class', 'btn btn-success flat__buttons')
+                   .text('Join This Group')
+                   .attr('href', "/groups/<%= @group_id %>/join/<%= @user_id %>")

@@ -1,0 +1,15 @@
+- if group.errors.any?
+  #error_explanation
+    %h4
+      = pluralize(group.errors.count, "error")
+      prohibited this group from being saved:
+    %ul
+      - group.errors.full_messages.each do |message|
+        %li= message
+
+= simple_form_for group, html: { multipart: true } do |f|
+  = f.input :thumbnail_image, inline_label: 'Thummnail Image'
+  = f.input :timeline_image, inline_label: 'Timeline Image'
+  = f.input :name, label: false, placeholder: 'Group Name' ,:autofocus => true
+  = f.input :description, label: false, placeholder: 'Group Description'
+  = f.button :submit, class: 'btn-success btn-block'

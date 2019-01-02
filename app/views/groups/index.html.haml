@@ -1,0 +1,15 @@
+.group-index-wrapper
+  %h2 Groups
+  -if current_user.role.name == 'admin'
+    = link_to 'New Group', new_group_path,class:'btn btn-primary'
+  .div{style: 'clear:both'}
+  %br
+  - @groups.each do|group|
+    .group-index-box
+      .group-card
+        =link_to group_path(group) do
+          .group-card-thumbnail
+            = image_tag group.thumbnail_image.url(:original)
+          .group-card-details
+            .group-card-title
+              = group.name

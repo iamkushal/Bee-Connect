@@ -1,0 +1,6 @@
+.btn-group.post-wrapper
+  = link_to 'Discussion',group_path(@group),class: 'btn btn-primary'
+  = link_to 'Members',members_group_path(@group),class: 'btn btn-success'
+  = link_to 'Group Chat',chat_group_path(@group),class: 'btn btn-info'
+  - if current_user.role.name == 'admin'
+    = link_to 'Edit Group',edit_group_path(@group),class: 'btn btn-warning'
